@@ -539,15 +539,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 54932097139454732, guid: 7fc82719f2daea443a51d39990d8b5af,
-        type: 2}
-      propertyPath: m_Mass
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 54932097139454732, guid: 7fc82719f2daea443a51d39990d8b5af,
-        type: 2}
-      propertyPath: m_Drag
-      value: 0.17
+    - target: {fileID: 1840258107510042, guid: 7fc82719f2daea443a51d39990d8b5af, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fc82719f2daea443a51d39990d8b5af, type: 2}
