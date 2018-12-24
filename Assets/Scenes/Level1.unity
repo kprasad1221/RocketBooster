@@ -113,6 +113,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &74481148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1840258107510042, guid: 7fc82719f2daea443a51d39990d8b5af,
+    type: 2}
+  m_PrefabInternal: {fileID: 1381842027}
+--- !u!54 &74481149
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 74481148}
+  serializedVersion: 2
+  m_Mass: 0.075
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &74481151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 74481148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4558b4fbf8839479f9739f974db16b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &101987978
 Prefab:
   m_ObjectHideFlags: 0
@@ -214,11 +245,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4871074163419902, guid: 89da223896785e447a7a97f769f638cc, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -20
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4871074163419902, guid: 89da223896785e447a7a97f769f638cc, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.1302666
+      value: -0.043619405
       objectReference: {fileID: 0}
     - target: {fileID: 4871074163419902, guid: 89da223896785e447a7a97f769f638cc, type: 2}
       propertyPath: m_LocalRotation.y
@@ -230,7 +261,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4871074163419902, guid: 89da223896785e447a7a97f769f638cc, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.99147904
+      value: 0.9990483
       objectReference: {fileID: 0}
     - target: {fileID: 4871074163419902, guid: 89da223896785e447a7a97f769f638cc, type: 2}
       propertyPath: m_RootOrder
@@ -238,7 +269,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4871074163419902, guid: 89da223896785e447a7a97f769f638cc, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 14.97
+      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89da223896785e447a7a97f769f638cc, type: 2}
@@ -298,7 +329,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4489935216789304, guid: 7fc82719f2daea443a51d39990d8b5af, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.55046344
+      value: 2.16
       objectReference: {fileID: 0}
     - target: {fileID: 4489935216789304, guid: 7fc82719f2daea443a51d39990d8b5af, type: 2}
       propertyPath: m_LocalPosition.z
@@ -336,6 +367,26 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0.252
       objectReference: {fileID: 0}
+    - target: {fileID: 23044532038302846, guid: 7fc82719f2daea443a51d39990d8b5af,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f66549519614ab74f910e39064591e89, type: 2}
+    - target: {fileID: 23813928852373336, guid: 7fc82719f2daea443a51d39990d8b5af,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e269622dcb7673147bf1b6b6a5f79f5d, type: 2}
+    - target: {fileID: 23878137474299350, guid: 7fc82719f2daea443a51d39990d8b5af,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b7abb6dc36a27874eb043f534e942e21, type: 2}
+    - target: {fileID: 23823719946971712, guid: 7fc82719f2daea443a51d39990d8b5af,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b7abb6dc36a27874eb043f534e942e21, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fc82719f2daea443a51d39990d8b5af, type: 2}
   m_IsPrefabAsset: 0
