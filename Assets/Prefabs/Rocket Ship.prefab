@@ -91,9 +91,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4489935216789304}
+  - component: {fileID: 114274178380533022}
   - component: {fileID: 54932097139454732}
   - component: {fileID: 82182155260031116}
-  - component: {fileID: 114274178380533022}
   m_Layer: 0
   m_Name: Rocket Ship
   m_TagString: Untagged
@@ -147,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1840258107510042}
   m_LocalRotation: {x: 0.00025307253, y: 0.0021991034, z: -0.000000556534, w: 0.99999756}
-  m_LocalPosition: {x: -20, y: 1.1, z: -0.0009235146}
+  m_LocalPosition: {x: -20, y: 2, z: -0.0009235146}
   m_LocalScale: {x: 0.69, y: 0.63, z: 1}
   m_Children:
   - {fileID: 4342025882676676}
@@ -497,6 +497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rcsThrust: 55
   thrust: 15
+  loadTime: 2
 --- !u!135 &135956572725474972
 SphereCollider:
   m_ObjectHideFlags: 1
