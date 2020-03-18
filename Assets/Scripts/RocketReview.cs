@@ -24,11 +24,15 @@ public class RocketReview : MonoBehaviour {
         Rotate();  
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collided");
+    }
+
     private void Thrust()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            float thrustSpeed = thrust * Time.deltaTime;
             rb.AddRelativeForce(Vector3.up * thrust);
             if (audioSource.isPlaying == false)
             {
