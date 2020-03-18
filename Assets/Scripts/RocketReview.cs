@@ -26,7 +26,20 @@ public class RocketReview : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided");
+        switch (collision.gameObject.tag)
+        {
+            case "Friendly":
+                Debug.Log("Safe Space");
+                break;
+
+            case "Fuel":
+                Debug.Log("Fuel Pad");
+                break;
+
+            default:
+                Debug.Log("Deadly Collision");
+                break;
+        }
     }
 
     private void Thrust()
