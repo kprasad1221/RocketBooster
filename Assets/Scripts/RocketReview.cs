@@ -13,10 +13,13 @@ public class RocketReview : MonoBehaviour {
     AudioSource audioSource;
     [SerializeField] float rcsThrust = 10f;
     [SerializeField] float thrust = 10f;
-    [SerializeField] float loadTime = 2f;
+    [SerializeField] float loadDelayTime = 2f;
     [SerializeField] AudioClip mainEngine;
     [SerializeField] AudioClip deathSound;
     [SerializeField] AudioClip startSound;
+    [SerializeField] ParticleSystem thrustParticles;
+    [SerializeField] ParticleSystem goalParticles;
+    [SerializeField] ParticleSystem deathParticles;
 
     // Use this for initialization
     void Start ()
@@ -56,20 +59,24 @@ public class RocketReview : MonoBehaviour {
         }
     }
 
-    private void StartDeathSequence()
-    {
-        state = State.Dying;
-        audioSource.Stop();
-        audioSource.PlayOneShot(deathSound);
-        Invoke("LoadBeginning", loadTime);
-    }
-
     private void StartGoalSequence()
     {
         state = State.Transcending;
         audioSource.Stop();
+        thrustParticles.Stop();
         audioSource.PlayOneShot(startSound);
-        Invoke("LoadNextScene", loadTime);
+        goalParticles.Play();
+        Invoke("LoadNextScene", loadDelayTime);
+    }
+
+    private void StartDeathSequence()
+    {
+        state = State.Dying;
+        thrustParticles.Stop();
+        audioSource.Stop();
+        audioSource.PlayOneShot(deathSound);
+        deathParticles.Play();
+        Invoke("LoadBeginning", loadDelayTime);
     }
 
     private void LoadBeginning()
@@ -91,12 +98,14 @@ public class RocketReview : MonoBehaviour {
         else
         {
             audioSource.Stop();
+            thrustParticles.Stop();
         }
     }
 
     private void ApplyThrust()
     {
         rb.AddRelativeForce(Vector3.up * thrust);
+        thrustParticles.Play();
         if (audioSource.isPlaying == false)
         {
             audioSource.PlayOneShot(mainEngine);
