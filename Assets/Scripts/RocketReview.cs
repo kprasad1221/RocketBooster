@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class RocketReview : MonoBehaviour {
 
-    enum State {Alive, Dying, Transcending};
+    enum State {Alive, Dying, Transcending, Immortal};
     State state = State.Alive;
+    bool collisionsDisabled = false;
 
     Rigidbody rb;
     AudioSource audioSource;
@@ -31,17 +32,36 @@ public class RocketReview : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(state == State.Alive)
+        if(state == State.Alive || state == State.Immortal)
         {
             RespondToThrustInput();
             RespondToRotateInput();
-        } 
+        }
+        if (Debug.isDebugBuild)
+        {
+            RespondToDebugKeys();
+        }
+    }
+
+    private void RespondToDebugKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextScene();
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionsDisabled = !collisionsDisabled;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (state != State.Alive) { return; }
-
+        if (state != State.Alive || collisionsDisabled)
+        {
+            return;
+        }
+        
         switch (collision.gameObject.tag)
         {
             
@@ -86,7 +106,10 @@ public class RocketReview : MonoBehaviour {
 
     private void LoadNextScene()
     {
-        SceneManager.LoadScene(1);  //TODO - allow for >2 levels
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        if(nextSceneIndex >= SceneManager.sceneCountInBuildSettings) { nextSceneIndex = 0; }
+        SceneManager.LoadScene(nextSceneIndex);  
     }
 
     private void RespondToThrustInput()
@@ -128,4 +151,28 @@ public class RocketReview : MonoBehaviour {
 
         rb.freezeRotation = false;
     }
+
+    private void RespondToLevelChangeInput()
+    {
+        if (Input.GetKey(KeyCode.L))
+        {
+            SceneManager.LoadScene(1);
+        }
+    }
+
+    private void RespondToCollisionInput()
+    {
+        if (Input.GetKey(KeyCode.C))
+        {
+            if (state != State.Immortal)
+            {
+                state = State.Immortal;
+            }
+            else
+            {
+                state = State.Alive;
+            }
+        }
+    }
+
 }
